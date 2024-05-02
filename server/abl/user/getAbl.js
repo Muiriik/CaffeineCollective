@@ -2,13 +2,13 @@
 
 const userDao = require("../../dao/user-dao.js");
 
-function GetAbl(req, res) {
+async function GetAbl(req, res) {
   // validation here
 
   try {
-    reqParams = req.query?.id ? req.query : req.body;
+    reqParams = req.params;
 
-    const user = userDao.get(reqParams.id);
+    const user = await userDao.get(reqParams.id);
 
     res.json(user);
   } catch (e) {

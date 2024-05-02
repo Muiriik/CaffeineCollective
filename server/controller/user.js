@@ -5,7 +5,39 @@ const GetAbl = require("../abl/user/getAbl.js");
 const ListAbl = require("../abl/user/listAbl.js");
 // const CreateAbl = require("../abl/user/createAbl.js");
 
-router.get("/get", GetAbl);
+/**
+ * @swagger
+ * /user/get/{id}:
+ *   get:
+ *     tags: [Users]
+ *     description: Returns a user by id
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *         description: A user object
+ *       500:
+ *         description: An error occurred
+ */
+router.get("/get/:id", GetAbl);
+
+/**
+ * @swagger
+ * /user/list:
+ *   get:
+ *     tags: [Users]
+ *     description: Returns a list of users
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: A list of user objects
+ */
 router.get("/list", ListAbl);
 // router.post("/create", CreateAbl);
 

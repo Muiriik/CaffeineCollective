@@ -2,12 +2,13 @@
 
 const userDao = require("../../dao/user-dao.js");
 
-function ListAbl(req, res) {
+async function ListAbl(req, res) {
   // validation here
 
   try {
-    const user = userDao.listAll();
+    const user = await userDao.listAll();
 
+    console.log(user);
     res.json(user);
   } catch (e) {
     res.status(500).json({ message: e.message });

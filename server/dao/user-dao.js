@@ -2,33 +2,22 @@
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./dao/database/CaffeineCollective");
 
-function get(userId) {
-  db.get("SELECT * FROM users WHERE id = ?", userId, (err, rows) => {
-    if (err) {
-      // Handle or log the error here
-      console.error(`Error getting user ${userId}:`, err);
-      return null; // or throw an error, depending on your use case
-    }
-    // const user = JSON.parse(rows); // assuming this is what you want to do with the result
-    const user = rows;
-    console.log("User: ", user);
-    return user;
+async function get(userId) {
+  console.log("Getting user: ", userId);
+  return new Promise((resolve, reject) => {
+    db.get("SELECT * FROM users WHERE id = ?", userId, (err, row) => {
+          if (err) reject(err);
+          resolve(row);
+      });
   });
 }
 
-function listAll() {
-  db.each("SELECT * FROM users", (err, rows) => {
-    if (err) {
-      // Handle or log the error here
-      console.error(`Error getting users`, err);
-      return null; // or throw an error, depending on your use case
-    }
-    // const user = JSON.parse(rows); // assuming this is what you want to do with the result
-    const user = rows;
-    // console.log("Users: ", JSON.stringify(user));
-
-    console.log("Users: ", user);
-    return user;
+async function listAll() {
+  return new Promise((resolve, reject) => {
+      db.all(`SELECT * FROM users`,(err, row) => {
+          if (err) reject(err);
+          resolve(row);
+      });
   });
 }
 
