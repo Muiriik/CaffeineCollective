@@ -28,14 +28,13 @@ const options = {
     servers: [
       {
         url: `http://localhost:${port}/api/v1/`,
-      }
+      },
     ],
   },
-  apis:
-    [
-      "./app.js",
-      "./controller/*.js",
-    ],
+  apis: [
+    "./app.js",
+    "./controller/*.js",
+  ],
 };
 const swaggerSpec = swaggerJsDoc(options);
 // console.log(swaggerSpec);
@@ -49,10 +48,14 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
  *     responses:
  *       200:
  *         description: Hello World!
- * 
  */
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send(`
+    <h1>Hello World!</h1>
+    <ul>
+      <li><a href="/api-docs">Api-docs</a></li>
+    </ul>
+    `);
 });
 
 app.listen(port, () => {
