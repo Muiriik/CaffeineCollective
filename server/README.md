@@ -6,7 +6,18 @@
 $ npm install
 ```
 
-## Run
+## Init database
+
+```
+$ npm run init-db
+```
+
+> [!INFO]
+> database will be created in `{projectroot}/database/CaffeineCollective`
+> 
+> without database app won't work
+
+## Run the app
 
 ```
 $ node app.js
