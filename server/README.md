@@ -15,7 +15,7 @@ $ node app.js
 
 ## Run in hot reload mode
 ```
-$ nodemon app.js
+$ npm app.js
 ```
 
 > [!TIP]
