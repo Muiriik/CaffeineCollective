@@ -27,7 +27,7 @@ const ListAbl = require("../abl/user/listAbl.js");
 router.get("/get/:id", GetAbl);
 
 /**
- * @swagger
+ * @openapi
  * /user/list:
  *   get:
  *     tags: [Users]
@@ -37,7 +37,23 @@ router.get("/get/:id", GetAbl);
  *     responses:
  *       200:
  *         description: A list of user objects
+ *       400:
+ *         description: Invalid request (validation error)
+ *         schema:
+ *           type: object
+ *           properties:
+ *             message:
+ *               type: string
+ *             validationError:
+ *               type: array
+ *               items:
+ *                 type: string
+ *       404:
+ *         description: No users found
+ *       500:
+ *         description: Internal server error
  */
+
 router.get("/list", ListAbl);
 // router.post("/create", CreateAbl);
 
