@@ -6,7 +6,7 @@ const ListAbl = require("../abl/user/listAbl.js");
 // const CreateAbl = require("../abl/user/createAbl.js");
 
 /**
- * @swagger
+ * @openapi
  * /user/get/{id}:
  *   get:
  *     tags: [Users]
@@ -18,9 +18,21 @@ const ListAbl = require("../abl/user/listAbl.js");
  *         in: path
  *         required: true
  *         type: string
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: A user object
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 // Add any required properties here (e.g., id, name, email)
+ *       400:
+ *         description: Invalid request
+ *       404:
+ *         description: No user found
  *       500:
  *         description: An error occurred
  */
