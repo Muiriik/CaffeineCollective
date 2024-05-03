@@ -20,7 +20,22 @@ function listAll() {
   });
 }
 
+function create(user) {
+  return new Promise((resolve, reject) => {
+    db.run(`INSERT INTO users (display_name, email, password) VALUES (?,?,?)`, [
+      user.display_name,
+      user.email,
+      user.password
+    ],
+      (err, row) => {
+        if (err) reject(err);
+        resolve(row);
+      });
+  });
+}
+
 module.exports = {
   get,
   listAll,
+  create,
 };

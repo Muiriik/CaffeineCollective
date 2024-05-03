@@ -3,7 +3,7 @@ const router = express.Router();
 
 const GetAbl = require("../abl/user/getAbl.js");
 const ListAbl = require("../abl/user/listAbl.js");
-// const CreateAbl = require("../abl/user/createAbl.js");
+const CreateAbl = require("../abl/user/createAbl.js");
 
 /**
  * @openapi
@@ -67,6 +67,6 @@ router.get("/get/:id", GetAbl);
  */
 
 router.get("/list", ListAbl);
-// router.post("/create", CreateAbl);
+router.post("/create", CreateAbl);
 
 module.exports = router;
