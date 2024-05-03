@@ -67,6 +67,42 @@ router.get("/get/:id", GetAbl);
  */
 
 router.get("/list", ListAbl);
+
+/** @openapi
+*  /user/create:
+*    post:
+*      tags: [Users]
+*      description: Creates a new user
+*      requestBody:
+*        content:
+*          application/json:
+*            schema:
+*              type: object
+*              properties:
+*                display_name:
+*                  type: string
+*                  minLength: 3
+*                email:
+*                  type: string
+*                  format: email
+*                password:
+*                  type: string
+*                  minLength: 10
+*              required:
+*                - display_name
+*                - email
+*                - password
+*              additionalProperties: false
+*      responses:
+*        201:
+*          description: User created successfully
+*        400:
+*          description: Invalid request
+*        409:
+*          description: User with email already exists
+*        500:
+*          description: Internal Server Error
+*/
 router.post("/create", CreateAbl);
 
 module.exports = router;
