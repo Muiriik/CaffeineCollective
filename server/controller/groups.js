@@ -24,12 +24,6 @@ const PatchAbl = require("../abl/groups/patchAbl.js");
  *     responses:
  *       200:
  *         description: A user object
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 // Add any required properties here (e.g., id, name, email)
  *       400:
  *         description: Invalid request
  *       404:
@@ -52,15 +46,6 @@ router.get("/:id", GetAbl);
  *         description: A list of user objects
  *       400:
  *         description: Invalid request (validation error)
- *         schema:
- *           type: object
- *           properties:
- *             message:
- *               type: string
- *             validationError:
- *               type: array
- *               items:
- *                 type: string
  *       404:
  *         description: No groups found
  *       500:

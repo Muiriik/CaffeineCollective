@@ -47,15 +47,6 @@ router.get("/:id", GetAbl);
  *         description: A list of user objects
  *       400:
  *         description: Invalid request (validation error)
- *         schema:
- *           type: object
- *           properties:
- *             message:
- *               type: string
- *             validationError:
- *               type: array
- *               items:
- *                 type: string
  *       404:
  *         description: No users found
  *       500:
