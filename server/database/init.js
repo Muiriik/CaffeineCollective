@@ -56,18 +56,18 @@ db.serialize(() => {
 
 db.serialize(() => {
   db.run(
-    "CREATE TABLE roles (id INTEGER PRIMARY KEY, user_id INT, group_id INT, permission TEXT, active INT, FOREIGN KEY(user_id) REFERENCES users(id), FOREIGN KEY(group_id) REFERENCES groups(id))",
+    "CREATE TABLE roles (id INTEGER PRIMARY KEY, user_id INT, group_id INT, permission TEXT, FOREIGN KEY(user_id) REFERENCES users(id), FOREIGN KEY(group_id) REFERENCES groups(id))",
   );
 
   const initRoles = [
-    ["2", "1", "user", "1"],
-    ["3", "2", "admin", "1"],
-    ["3", "1", "user", "1"],
-    ["4", "3", "admin", "1"],
+    ["2", "1", "user"],
+    ["3", "2", "admin"],
+    ["3", "1", "user"],
+    ["4", "3", "admin"],
   ];
 
   const stmt = db.prepare(
-    "INSERT INTO roles (user_id, group_id, permission, active) VALUES (?, ?, ?, ?)",
+    "INSERT INTO roles (user_id, group_id, permission) VALUES (?, ?, ?)",
   );
   initRoles.forEach((row) => stmt.run(row));
   stmt.finalize();
