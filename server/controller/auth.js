@@ -33,7 +33,7 @@ const authAbl = require("../abl/auth/authAbl.js");
  *         description: User authenticated successfully
  *       400:
  *         description: Invalid request
- *       403:
+ *       401:
  *         description: Invalid credentials
  *       500:
  *         description: Internal Server Error
