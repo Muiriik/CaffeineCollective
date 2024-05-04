@@ -4,6 +4,7 @@ const router = express.Router();
 const GetAbl = require("../abl/groups/getAbl.js");
 const ListAbl = require("../abl/groups/listAbl.js");
 const CreateAbl = require("../abl/groups/createAbl.js");
+const PatchAbl = require("../abl/groups/patchAbl.js");
 
 /**
  * @openapi
@@ -105,5 +106,44 @@ router.get("/", ListAbl);
  *          description: Internal Server Error
  */
 router.post("/", CreateAbl);
+
+/** @openapi
+ * /groups/{id}:
+ *   patch:
+ *     tags: [Groups]
+ *     description: Updates a group by id
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         type: string
+ *     requestBody:
+ *        content:
+ *           application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                display_name:
+ *                  type: string
+ *                  minLength: 3
+ *                group_photo:
+ *                  type: string
+ *                join_code:
+ *                  type: string
+ *                  minLength: 7
+ *                  maxLenght: 7
+ *                notification_trigger:
+ *                  type: number
+ *     responses:
+ *       200:
+ *         description: Group updated successfully
+ *       400:
+ *         description: Invalid request
+ *       404:
+ *         description: No group found
+ *       500:
+ *         description: Internal Server Error
+ */
+router.patch("/:id", PatchAbl);
 
 module.exports = router;
