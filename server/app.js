@@ -39,7 +39,16 @@ const options = {
     servers: [
       {
         url: `http://localhost:${port}/api/v1/`,
+        description: 'Local development server',
       },
+    ],
+    tags: [
+      { name: "Users", description: "User related endpoints" },
+      { name: "Groups", description: "Group related endpoints" },
+      { name: "Auth", description: "Authentication related endpoints" },
+      { name: "Roles", description: "Role related endpoints" },
+      { name: "Queue", description: "Enpoint for queue management" },
+      { name: "Inventory", description: "Enpoint for inventory management" },
     ],
   },
   apis: [
@@ -51,15 +60,15 @@ const swaggerSpec = swaggerJsDoc(options);
 // console.log(swaggerSpec);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
-/**
- * @openapi
- * /:
- *   get:
- *     description: Returns Hello World!
- *     responses:
- *       200:
- *         description: Hello World!
- */
+// /**
+//  * @openapi
+//  * /:
+//  *   get:
+//  *     description: Returns Hello World!
+//  *     responses:
+//  *       200:
+//  *         description: Hello World!
+//  */
 app.get("/", (req, res) => {
   res.send(`
     <h1>Hello World!</h1>

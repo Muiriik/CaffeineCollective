@@ -7,8 +7,7 @@ const authAbl = require("../abl/auth/authAbl.js");
  * @openapi
  * /auth:
  *   post:
- *     tags:
- *       - [Auth]
+ *     tags: [Auth]
  *     description: Authenticates user
  *     requestBody:
  *       content:
