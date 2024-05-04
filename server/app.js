@@ -1,16 +1,25 @@
 const express = require("express");
+const session = require("express-session");
 const cors = require("cors");
 const app = express();
 const port = 3000;
 app.use(express.json());
 
+app.use(session({
+  secret: "secret",
+  resave: true,
+  saveUninitialized: true,
+  // saveUnitialized: true,
+}));
 app.use(cors());
 
 const userController = require("./controller/users");
 const groupController = require("./controller/groups");
+const authController = require("./controller/auth");
 
 app.use("/api/v1/users", userController);
 app.use("/api/v1/groups", groupController);
+app.use("/api/v1/auth", authController);
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
