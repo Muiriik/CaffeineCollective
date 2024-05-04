@@ -5,6 +5,7 @@ const GetAbl = require("../abl/users/getAbl.js");
 const ListAbl = require("../abl/users/listAbl.js");
 const CreateAbl = require("../abl/users/createAbl.js");
 const DeleteAbl = require("../abl/users/deleteAbl.js");
+const PatchAbl = require("../abl/users/patchAbl.js");
 
 /**
  * @openapi
@@ -24,12 +25,6 @@ const DeleteAbl = require("../abl/users/deleteAbl.js");
  *     responses:
  *       200:
  *         description: A user object
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 // Add any required properties here (e.g., id, name, email)
  *       400:
  *         description: Invalid request
  *       404:
@@ -128,4 +123,39 @@ router.post("/", CreateAbl);
  */
 router.delete("/:id", DeleteAbl);
 
+/** @openapi
+ * /users/{id}:
+ *   patch:
+ *     tags: [Users]
+ *     description: Updates a user by id
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         type: string
+ *     requestBody:
+ *        content:
+ *           application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                display_name:
+ *                  type: string
+ *                  minLength: 3
+ *                password:
+ *                  type: string
+ *                  minLength: 10
+ *     responses:
+ *       200:
+ *         description: User updated successfully
+ *       400:
+ *         description: Invalid request
+ *       404:
+ *         description: No user found
+ *       403:
+ *         description: You are not allowed to change the email address
+ *       500:
+ *         description: Internal Server Error
+ */
+router.patch("/:id", PatchAbl);
 module.exports = router;

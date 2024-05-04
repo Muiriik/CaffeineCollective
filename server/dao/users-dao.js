@@ -42,9 +42,24 @@ function remove(userId) {
   });
 }
 
+function update(user, newData) {
+  return new Promise((resolve, reject) => {
+    db.run("UPDATE users SET display_name=?, password=? WHERE id=?",
+      [
+        newData.display_name ? newData.display_name : user.display_name,
+        newData.password ? newData.password : user.password,
+        user.id
+      ], (err, row) => {
+        if (err) reject(err);
+        resolve(row);
+      });
+  });
+};
+
 module.exports = {
   get,
   listAll,
   create,
   remove,
+  update,
 };
