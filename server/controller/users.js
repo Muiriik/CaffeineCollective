@@ -40,7 +40,7 @@ router.get("/:id", GetAbl);
 
 /**
  * @openapi
- * /users/list:
+ * /users:
  *   get:
  *     tags: [Users]
  *     description: Returns a list of users
