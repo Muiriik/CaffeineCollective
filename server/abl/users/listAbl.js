@@ -1,21 +1,19 @@
+// AJV here
 const AJV = require("ajv");
 const ajv = new AJV();
 
 const schema = {
   type: "object",
-  properties: {
-    id: { type: "string" },
-  },
-  required: [
-    "id",
-  ],
+  properties: {},
+  required: [],
   additionalProperties: false,
 }
 
-const userDao = require("../../dao/user-dao.js");
+const userDao = require("../../dao/users-dao.js");
 
-async function GetAbl(req, res) {
+async function ListAbl(req, res) {
   try {
+    // validation here
     const valid = ajv.validate(schema, req.params);
     if (!valid) {
       res.status(400).json({
@@ -25,16 +23,16 @@ async function GetAbl(req, res) {
       return;
     }
 
-    const user = await userDao.get(req.params.id);
-    if (!user || user.length === 0) {
+    const users = await userDao.listAll();
+    if (!users || users.length === 0) {
       res.status(404).json({
-        message: "No user found",
+        message: "No users found",
       });
       return;
     }
 
     // console.log(user);
-    res.json(user);
+    res.json(users);
 
   } catch (e) {
     res.status(500).json({
@@ -43,4 +41,4 @@ async function GetAbl(req, res) {
   }
 }
 
-module.exports = GetAbl;
+module.exports = ListAbl;

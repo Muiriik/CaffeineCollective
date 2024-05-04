@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-const GetAbl = require("../abl/user/getAbl.js");
-const ListAbl = require("../abl/user/listAbl.js");
-const CreateAbl = require("../abl/user/createAbl.js");
+const GetAbl = require("../abl/users/getAbl.js");
+const ListAbl = require("../abl/users/listAbl.js");
+const CreateAbl = require("../abl/users/createAbl.js");
 
 /**
  * @openapi
- * /user/get/{id}:
+ * /users/{id}:
  *   get:
  *     tags: [Users]
  *     description: Returns a user by id
@@ -36,11 +36,11 @@ const CreateAbl = require("../abl/user/createAbl.js");
  *       500:
  *         description: An error occurred
  */
-router.get("/get/:id", GetAbl);
+router.get("/:id", GetAbl);
 
 /**
  * @openapi
- * /user/list:
+ * /users/list:
  *   get:
  *     tags: [Users]
  *     description: Returns a list of users
@@ -66,43 +66,43 @@ router.get("/get/:id", GetAbl);
  *         description: Internal server error
  */
 
-router.get("/list", ListAbl);
+router.get("/", ListAbl);
 
 /** @openapi
-*  /user/create:
-*    post:
-*      tags: [Users]
-*      description: Creates a new user
-*      requestBody:
-*        content:
-*          application/json:
-*            schema:
-*              type: object
-*              properties:
-*                display_name:
-*                  type: string
-*                  minLength: 3
-*                email:
-*                  type: string
-*                  format: email
-*                password:
-*                  type: string
-*                  minLength: 10
-*              required:
-*                - display_name
-*                - email
-*                - password
-*              additionalProperties: false
-*      responses:
-*        201:
-*          description: User created successfully
-*        400:
-*          description: Invalid request
-*        409:
-*          description: User with email already exists
-*        500:
-*          description: Internal Server Error
-*/
-router.post("/create", CreateAbl);
+ *  /users:
+ *    post:
+ *      tags: [Users]
+ *      description: Creates a new user
+ *      requestBody:
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                display_name:
+ *                  type: string
+ *                  minLength: 3
+ *                email:
+ *                  type: string
+ *                  format: email
+ *                password:
+ *                  type: string
+ *                  minLength: 10
+ *              required:
+ *                - display_name
+ *                - email
+ *                - password
+ *              additionalProperties: false
+ *      responses:
+ *        201:
+ *          description: User created successfully
+ *        400:
+ *          description: Invalid request
+ *        409:
+ *          description: User with email already exists
+ *        500:
+ *          description: Internal Server Error
+ */
+router.post("/", CreateAbl);
 
 module.exports = router;

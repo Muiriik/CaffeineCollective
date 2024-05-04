@@ -18,7 +18,7 @@ const schema = {
   additionalProperties: false,
 };
 
-const userDao = require("../../dao/user-dao.js");
+const userDao = require("../../dao/users-dao.js");
 
 async function CreateAbl(req, res) {
   try {
