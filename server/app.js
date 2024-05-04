@@ -13,12 +13,12 @@ app.use(session({
 }));
 app.use(cors());
 
-const userController = require("./controller/users");
-const groupController = require("./controller/groups");
+const usersController = require("./controller/users");
+const groupsController = require("./controller/groups");
 const authController = require("./controller/auth");
 
-app.use("/api/v1/users", userController);
-app.use("/api/v1/groups", groupController);
+app.use("/api/v1/users", usersController);
+app.use("/api/v1/groups", groupsController);
 app.use("/api/v1/auth", authController);
 
 const swaggerJsDoc = require("swagger-jsdoc");
