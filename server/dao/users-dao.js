@@ -33,8 +33,18 @@ function create(user) {
   });
 }
 
+function remove(userId) {
+  return new Promise((resolve, reject) => {
+    db.run("DELETE FROM users WHERE id = ?", userId, (err, row) => {
+      if (err) reject(err);
+      resolve(row);
+    });
+  });
+}
+
 module.exports = {
   get,
   listAll,
   create,
+  remove,
 };

@@ -4,6 +4,7 @@ const router = express.Router();
 const GetAbl = require("../abl/users/getAbl.js");
 const ListAbl = require("../abl/users/listAbl.js");
 const CreateAbl = require("../abl/users/createAbl.js");
+const DeleteAbl = require("../abl/users/deleteAbl.js");
 
 /**
  * @openapi
@@ -104,5 +105,27 @@ router.get("/", ListAbl);
  *          description: Internal Server Error
  */
 router.post("/", CreateAbl);
+
+/** @openapi
+ * /users/{id}:
+ *   delete:
+ *     tags: [Users]
+ *     description: Deletes a user by id
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *       204:
+ *         description: User deleted successfully
+ *       400:
+ *         description: Invalid request
+ *       404:
+ *         description: No user found
+ *       500:
+ *         description: Internal Server Error
+ */
+router.delete("/:id", DeleteAbl);
 
 module.exports = router;
