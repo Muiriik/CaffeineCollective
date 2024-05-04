@@ -11,6 +11,7 @@ db.serialize(() => {
     ["Admin", "admin@coffeinecollective.local", "adminheslo"],
     ["Slime", "slime@coffeinecollective.local", "slimeheslo"],
     ["Honza", "honza@coffeinecollective.local", "honzaheslo"],
+    ["Veru", "cajik@coffeinecollective.local", "cajikheslo"],
   ];
 
   const stmt = db.prepare(
@@ -38,6 +39,12 @@ db.serialize(() => {
       "Cai5ohp",
       "500",
     ],
+    [
+      "Cajik",
+      "https://picsum.photos/id/137/4752/3168",
+      "kotatko",
+      "10",
+    ],
   ];
 
   const stmt = db.prepare(
@@ -56,6 +63,7 @@ db.serialize(() => {
     ["2", "1", "user", "1"],
     ["3", "2", "admin", "1"],
     ["3", "1", "user", "1"],
+    ["4", "3", "admin", "1"],
   ];
 
   const stmt = db.prepare(
