@@ -34,7 +34,7 @@ async function GetAbl(req, res) {
     }
 
     // console.log(user);
-    res.json(user);
+    res.status(200).json(user);
 
   } catch (e) {
     res.status(500).json({

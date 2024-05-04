@@ -32,7 +32,7 @@ async function ListAbl(req, res) {
     }
 
     // console.log(user);
-    res.json(group);
+    res.status(200).json(group);
 
   } catch (e) {
     res.status(500).json({
