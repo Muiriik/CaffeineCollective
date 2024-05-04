@@ -16,10 +16,12 @@ app.use(cors());
 const usersController = require("./controller/users");
 const groupsController = require("./controller/groups");
 const authController = require("./controller/auth");
+const rolesController = require("./controller/roles");
 
 app.use("/api/v1/users", usersController);
 app.use("/api/v1/groups", groupsController);
 app.use("/api/v1/auth", authController);
+app.use("/api/v1/roles", rolesController);
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
