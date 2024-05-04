@@ -7,8 +7,10 @@ app.use(express.json());
 app.use(cors());
 
 const userController = require("./controller/users");
+const groupController = require("./controller/groups");
 
 app.use("/api/v1/users", userController);
+app.use("/api/v1/groups", groupController);
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
