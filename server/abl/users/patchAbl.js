@@ -7,9 +7,6 @@ const schema = {
   type: "object",
   properties: {
     id: { type: "string" },
-    // display_name: { type: "string", minLength: 3, optional: true },
-    // email: { type: "string", format: "email", readOnly: true },
-    // password: { type: "string", minLength: 10, optional: true },
   },
   required: [
     "id",
