@@ -75,19 +75,19 @@ db.serialize(() => {
 
 db.serialize(() => {
   db.run(
-    "CREATE TABLE queue (id INTEGER PRIMARY KEY, user_id INT, group_id INT, timestamp TEXT, proccessed INT, FOREIGN KEY(user_id) REFERENCES users(id), FOREIGN KEY(group_id) REFERENCES groups(id))",
+    "CREATE TABLE queues (id INTEGER PRIMARY KEY, user_id INT, group_id INT, timestamp TEXT, processed INT, FOREIGN KEY(user_id) REFERENCES users(id), FOREIGN KEY(group_id) REFERENCES groups(id))",
   );
 
   const initQueue = [
-    ["3", "1", "1714601896", "1"],
-    ["3", "2", "1714688296", "1"],
-    ["2", "1", "1714774696", "1"],
-    ["3", "1", "1714774815", "0"],
-    ["2", "1", "1714775214", "0"],
+    ["3", "1", "2023-03-18T14:30:05.123Z", "1"],
+    ["3", "2", "2023-03-15T22:00:42.901Z", "1"],
+    ["2", "1", "2023-03-12T10:45:23.118Z", "1"],
+    ["3", "1", "2023-02-25T08:15:01.235Z", "0"],
+    ["2", "1", "2023-02-20T16:30:47.654Z", "0"],
   ];
 
   const stmt = db.prepare(
-    "INSERT INTO queue (user_id, group_id, timestamp, proccessed) VALUES (?, ?, ?, ?)",
+    "INSERT INTO queues (user_id, group_id, timestamp, processed) VALUES (?, ?, ?, ?)",
   );
   initQueue.forEach((row) => stmt.run(row));
   stmt.finalize();
@@ -99,10 +99,10 @@ db.serialize(() => {
   );
 
   const initInventory = [
-    ["3", "1", "1714601896", "1000,69"],
-    ["3", "2", "1714688296", "500"],
-    ["2", "1", "1714774696", "420,69"],
-    ["3", "1", "1714774815", "200"],
+    ["3", "1", "2023-03-18T14:30:05.123Z", "1000,69"],
+    ["3", "2", "2023-03-15T22:00:42.901Z", "500"],
+    ["2", "1", "2023-03-12T10:45:23.118Z", "420,69"],
+    ["3", "1", "2023-02-25T08:15:01.235Z", "200"],
   ];
 
   const stmt = db.prepare(
