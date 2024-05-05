@@ -3,7 +3,7 @@ const db = new sqlite3.Database("./database/CaffeineCollective");
 
 function get(userId) {
   return new Promise((resolve, reject) => {
-    db.get("SELECT * FROM users WHERE id = ?", userId, (err, row) => {
+    db.get("SELECT id, display_name, email FROM users WHERE id = ?", userId, (err, row) => {
       if (err) reject(err);
       resolve(row);
     });
@@ -12,7 +12,7 @@ function get(userId) {
 
 function listAll() {
   return new Promise((resolve, reject) => {
-    db.all(`SELECT * FROM users`, (err, row) => {
+    db.all(`SELECT id, display_name, email FROM users`, (err, row) => {
       if (err) reject(err);
       resolve(row);
     });
