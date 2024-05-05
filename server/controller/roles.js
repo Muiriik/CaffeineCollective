@@ -94,23 +94,15 @@ router.get("/", ListAbl);
 router.post("/", CreateAbl);
 
 /** @openapi
- * /roles:
+ * /roles/{id}:
  *   delete:
  *     tags: [Roles]
  *     description: Delete role
- *     requestBody:
- *        content:
- *           application/json:
- *            schema:
- *              type: object
- *              properties:
- *                user_id:
- *                  type: string
- *                group_id:
- *                  type: string
- *              required:
- *                - user_id
- *                - group_id
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         type: string
  *     responses:
  *       200:
  *         description: Role deleted successfully
@@ -121,23 +113,24 @@ router.post("/", CreateAbl);
  *       500:
  *         description: Internal Server Error
  */
-router.delete("/", DeleteAbl);
+router.delete("/:id", DeleteAbl);
 
 /** @openapi
- * /roles:
+ * /roles/{id}:
  *   patch:
  *     tags: [Roles]
  *     description: Updates a role for user
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         type: string
  *     requestBody:
  *        content:
  *           application/json:
  *            schema:
  *              type: object
  *              properties:
- *                user_id:
- *                  type: string
- *                group_id:
- *                  type: string
  *                permission:
  *                  type: string
  *                  enum:
@@ -156,6 +149,6 @@ router.delete("/", DeleteAbl);
  *       500:
  *         description: Internal Server Error
  */
-router.patch("/", PatchAbl);
+router.patch("/:id", PatchAbl);
 
 module.exports = router;

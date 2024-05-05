@@ -1,9 +1,9 @@
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./database/CaffeineCollective");
 
-function get(user_id, group_id) {
+function get(id) {
   return new Promise((resolve, reject) => {
-    db.get("SELECT * FROM roles WHERE user_id=? AND group_id=?", user_id, group_id, (err, row) => {
+    db.get("SELECT * FROM roles WHERE id=?", id, (err, row) => {
       if (err) reject(err);
       resolve(row);
     });
