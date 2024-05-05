@@ -17,11 +17,13 @@ const usersController = require("./controller/users");
 const groupsController = require("./controller/groups");
 const authController = require("./controller/auth");
 const rolesController = require("./controller/roles");
+const queuesController = require("./controller/queues");
 
 app.use("/api/v1/users", usersController);
 app.use("/api/v1/groups", groupsController);
 app.use("/api/v1/auth", authController);
 app.use("/api/v1/roles", rolesController);
+app.use("/api/v1/queues", queuesController);
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
