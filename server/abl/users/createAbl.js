@@ -37,13 +37,12 @@ async function CreateAbl(req, res) {
     const emailExists = Array.prototype.some.call(userList, (u) => u.email === user.email);
     if (emailExists) {
       res.status(409).json({
-        code: "emailAlreadyExists",
         message: `User with email ${user.email} already exists`,
       });
       return;
     }
 
-    res.status(201).json(userDao.create(user));
+    res.status(201).json(await userDao.create(user));
   } catch (e) {
     res.status(500).json({
       message: e.message,
