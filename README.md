@@ -23,3 +23,30 @@ We suggest that you begin by typing:
   npm start
 
 ```
+
+
+## Backend
+
+### Installation
+
+```
+$ npm install
+```
+
+### Init database
+
+```
+$ npm run init-db
+```
+
+### Run the app
+
+```
+$ node start
+```
+
+> [!TIP]
+> Api Documentation is available at http://localhost:3000/api-docs/.
+
+
+---

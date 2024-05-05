@@ -26,7 +26,7 @@ $ node app.js
 
 ## Run in hot reload mode
 ```
-$ npm app.js
+$ npm start
 ```
 
 > [!TIP]
