@@ -34,7 +34,7 @@ async function DeleteAbl(req, res) {
     }
 
     // console.log(user);
-    res.status(204).json(userDao.remove(req.params.id));
+    res.status(204).json(await userDao.remove(req.params.id));
   } catch (e) {
     res.status(500).json({
       message: e.message,
