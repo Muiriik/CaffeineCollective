@@ -13,7 +13,7 @@ const PatchAbl = require("../abl/inventory/patchAbl.js");
  * /inventory/{id}:
  *   get:
  *     tags: [Inventory]
- *     description: Returns a queue for group
+ *     description: Returns a inventroy entry by id
  *     produces:
  *       - application/json
  *     parameters:
@@ -23,11 +23,11 @@ const PatchAbl = require("../abl/inventory/patchAbl.js");
  *         type: string
  *     responses:
  *       200:
- *         description: A queue object
+ *         description: A inventroy entry object
  *       400:
  *         description: Invalid request
  *       404:
- *         description: No queue for group found
+ *         description: No inventroy entry
  *       500:
  *         description: An error occurred
  */
