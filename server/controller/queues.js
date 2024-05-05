@@ -100,20 +100,21 @@ router.get("/in-group/:group_id", GetGroupAbl);
 router.post("/", CreateAbl);
 
 /** @openapi
- * /queues:
+ * /queues/{id}:
  *   patch:
  *     tags: [Queue]
  *     description: Updates queue for group
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         type: string
  *     requestBody:
  *        content:
  *           application/json:
  *            schema:
  *              type: object
  *              properties:
- *                user_id:
- *                  type: string
- *                group_id:
- *                  type: string
  *                processed:
  *                  type: string
  *                  enum:
@@ -122,8 +123,6 @@ router.post("/", CreateAbl);
  *                  default: 1
  *                  required: true
  *              required:
- *                 - user_id
- *                 - group_id
  *                 - processed
  *     responses:
  *       200:
@@ -135,6 +134,6 @@ router.post("/", CreateAbl);
  *       500:
  *         description: Internal Server Error
  */
-router.patch("/", PatchAbl);
+router.patch("/:id", PatchAbl);
 
 module.exports = router;
