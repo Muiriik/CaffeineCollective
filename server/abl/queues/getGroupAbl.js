@@ -4,10 +4,10 @@ const ajv = new AJV();
 const schema = {
     type: "object",
     properties: {
-        id: { type: "string" },
+        group_id: { type: "string" },
     },
     required: [
-        "id",
+        "group_id",
     ],
     additionalProperties: false,
 }
