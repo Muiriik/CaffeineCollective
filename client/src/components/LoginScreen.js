@@ -7,8 +7,8 @@ import Container from 'react-bootstrap/Container';
 function LoginScreen() {
     const { userList, loggedInUser, handlerMap } = useContext(UserContext);
 
-    console.log("userList", userList);
-    console.log("logged in user", loggedInUser);
+    // console.log("userList", userList);
+    // console.log("logged in user", loggedInUser);
 
     return (
         <>
@@ -18,7 +18,7 @@ function LoginScreen() {
 
                 <ul>
                     {userList.map(({ id, display_name }) =>
-                        <li style={{ cursor: "pointer", textDecoration: "underline" }} onClick={() => handlerMap.login(id)}>
+                        <li style={{ cursor: "pointer", textDecoration: "underline" }} key={id} onClick={() => handlerMap.login(id)}>
                             {display_name}
                         </li>
                     )}

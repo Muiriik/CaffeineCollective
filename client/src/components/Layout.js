@@ -5,6 +5,7 @@ import { UserContext } from "../contexts/UserContext";
 import LoginScreen from "../components/LoginScreen";
 
 import MainMenu from "../components/MainMenu";
+import Container from "react-bootstrap/esm/Container";
 
 const Layout = () => {
     const { loggedInUser } = useContext(UserContext);
@@ -15,7 +16,9 @@ const Layout = () => {
             </div>
             <div>
                 {loggedInUser ?
-                    <Outlet />
+                    <Container>
+                        <Outlet />
+                    </Container>
                     :
                     <LoginScreen />
                 }
