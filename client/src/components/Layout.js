@@ -15,13 +15,13 @@ const Layout = () => {
                 <MainMenu />
             </div>
             <div>
-                {loggedInUser ?
-                    <Container>
+                <Container>
+                    {loggedInUser ?
                         <Outlet />
-                    </Container>
-                    :
-                    <LoginScreen />
-                }
+                        :
+                        <LoginScreen />
+                    }
+                </Container>
             </div>
         </>
     );

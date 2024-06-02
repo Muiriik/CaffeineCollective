@@ -13,17 +13,15 @@ function LoginScreen() {
     return (
         <>
 
-            <Container>
-                <h1>Select user to log in</h1>
+            <h1>Select user to log in</h1>
 
-                <ul>
-                    {userList.map(({ id, display_name }) =>
-                        <li style={{ cursor: "pointer", textDecoration: "underline" }} key={id} onClick={() => handlerMap.login(id)}>
-                            {display_name}
-                        </li>
-                    )}
-                </ul>
-            </Container>
+            <ul>
+                {userList.map(({ id, display_name }) =>
+                    <li style={{ cursor: "pointer", textDecoration: "underline" }} key={id} onClick={() => handlerMap.login(id)}>
+                        {display_name}
+                    </li>
+                )}
+            </ul>
 
 
         </>
