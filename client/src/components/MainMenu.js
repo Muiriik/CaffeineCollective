@@ -8,7 +8,7 @@ function MainMenu() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="#">Caffeine Collective</Navbar.Brand>
+                <Navbar.Brand href="/">Caffeine Collective</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     {loggedInUser ?
