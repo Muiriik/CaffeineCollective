@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { RolesContext } from "../contexts/RolesContext";
-import { GroupContext } from "../contexts/GroupContext";
+// import { GroupContext } from "../contexts/GroupContext";
 import GroupProvider from "../providers/GroupProvider";
 import Group from "../components/Group";
 

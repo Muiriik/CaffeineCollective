@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { RolesContext } from "../contexts/RolesContext.js";
 
-import { UserContext } from "../contexts/UserContext";
+// import { UserContext } from "../contexts/UserContext";
 
 
 function RolesProvider({ children }) {
@@ -10,7 +10,7 @@ function RolesProvider({ children }) {
         data: null,
     });
     const [selectedRole, setSelectedRole] = useState(null);
-    const { loggedInUser } = useContext(UserContext);
+    // const { loggedInUser } = useContext(UserContext);
 
 
     useEffect(() => {
