@@ -4,6 +4,8 @@ import { RolesContext } from "../contexts/RolesContext";
 // import { GroupContext } from "../contexts/GroupContext";
 import GroupProvider from "../providers/GroupProvider";
 import Group from "../components/Group";
+import { Link } from "react-router-dom";
+
 
 
 const Roles = () => {
@@ -20,9 +22,9 @@ const Roles = () => {
             {selectedRole ?
                 <>
                     {/* <h1>Role {selectedRole}</h1> */}
-                    <GroupProvider>
+                    {/* <GroupProvider>
                         <Group />
-                    </GroupProvider>
+                    </GroupProvider> */}
                 </>
                 :
                 <>
@@ -31,8 +33,11 @@ const Roles = () => {
                         {
                             roleList.filter((role) => role.user_id === loggedInUser.id)
                                 .map((role) => (
-                                    <li style={{ cursor: "pointer", textDecoration: "underline" }} key={role.group_id} onClick={() => handlerMap.open(role.group_id)}>
-                                        {role.group_id}
+                                    // <li style={{ cursor: "pointer", textDecoration: "underline" }} key={role.group_id} onClick={() => handlerMap.open(role.group_id)}>
+                                    //     {role.group_id}
+                                    // </li>
+                                    <li style={{ cursor: "pointer", textDecoration: "underline" }} key={role.group_id} >
+                                        <Link to="/group" onClick={() => handlerMap.open(role.group_id)}>{role.group_id}</Link>
                                     </li>
                                 ))
                         }

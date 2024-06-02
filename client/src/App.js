@@ -16,17 +16,10 @@ function App() {
       <UserProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Layout />}>
+            <Route element={<Layout />}>
 
-              <Route index element={
-                <RolesProvider>
-                  <Roles>
-                    <GroupProvider>
-                      <Group />
-                    </GroupProvider>
-                  </Roles>
-                </RolesProvider>
-              } />
+              <Route index element={<Roles />} />
+              <Route path="/group" element={<GroupProvider><Group /></GroupProvider>} />
               <Route path="*" element={"not found"} />
             </Route>
           </Routes>
