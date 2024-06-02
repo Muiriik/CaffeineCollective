@@ -4,9 +4,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import UserProvider from './providers/UserProvider';
 import RolesProvider from './providers/RolesProvider';
+import GroupProvider from './providers/GroupProvider';
 
 import Layout from './components/Layout';
-import Groups from './components/Groups';
+import Roles from './components/Roles';
+import Group from './components/Group';
 
 function App() {
   return (
@@ -18,7 +20,11 @@ function App() {
 
               <Route index element={
                 <RolesProvider>
-                  <Groups />
+                  <Roles>
+                    <GroupProvider>
+                      <Group />
+                    </GroupProvider>
+                  </Roles>
                 </RolesProvider>
               } />
               <Route path="*" element={"not found"} />

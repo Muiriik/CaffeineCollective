@@ -9,7 +9,7 @@ function RolesProvider({ children }) {
         state: "ready",
         data: null,
     });
-    const [selectedGroup, setSelectedGroup] = useState(null);
+    const [selectedRole, setSelectedRole] = useState(null);
     const { loggedInUser } = useContext(UserContext);
 
 
@@ -30,15 +30,12 @@ function RolesProvider({ children }) {
 
     const value = {
         roleList: roleList.data || [],
-        selectedGroup: selectedGroup
-            ? (roleList.data || []).filter((role) => role.user_id === loggedInUser.id)
-            : null,
+        selectedRole: selectedRole,
         handlerMap: {
-            open: setSelectedGroup,
-            close: () => setSelectedGroup(null),
+            open: setSelectedRole,
+            close: () => setSelectedRole(null),
         },
     };
-    // console.log(value.roleList);
     // console.log(value.roleList.filter((role) => role.user_id === loggedInUser.id));
 
     return (

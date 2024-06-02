@@ -1,20 +1,28 @@
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { RolesContext } from "../contexts/RolesContext";
+import { GroupContext } from "../contexts/GroupContext";
+import GroupProvider from "../providers/GroupProvider";
+import Group from "../components/Group";
 
-const Groups = () => {
+
+const Roles = () => {
     const { loggedInUser } = useContext(UserContext);
-    const { roleList, selectedGroup, handlerMap } = useContext(RolesContext);
+    const { roleList, selectedRole, handlerMap } = useContext(RolesContext);
+    // const { groupList, selectedGroup, groupHandlerMap } = useContext(GroupContext);
 
 
-    console.log("groups", roleList);
-    console.log("selected", selectedGroup);
+    // console.log("Roles", roleList);
+    // console.log("selected", selectedRole);
 
     return (
         <>
-            {selectedGroup ?
+            {selectedRole ?
                 <>
-                    <h1>Group {selectedGroup.group_id}</h1>
+                    {/* <h1>Role {selectedRole}</h1> */}
+                    <GroupProvider>
+                        <Group />
+                    </GroupProvider>
                 </>
                 :
                 <>
@@ -34,4 +42,4 @@ const Groups = () => {
         </>
     );
 };
-export default Groups;
+export default Roles;
