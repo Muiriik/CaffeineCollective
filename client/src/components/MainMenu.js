@@ -13,7 +13,7 @@ function MainMenu() {
                 <Navbar.Collapse className="justify-content-end">
                     {loggedInUser ?
                         <Navbar.Text>
-                            Signed in as: {loggedInUser.display_name} <span style={{ cursor: "pointer", textDecoration: "underline" }} onClick={() => handlerMap.logout()}> (logout)</span>
+                            Signed in as: {loggedInUser.display_name} <a href="/" style={{ cursor: "pointer", textDecoration: "underline" }} onClick={() => handlerMap.logout()}> (logout)</a>
                         </Navbar.Text>
                         :
                         null
