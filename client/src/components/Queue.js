@@ -7,19 +7,21 @@ const Queue = () => {
 
     return (
         <>
+            <h2>queue</h2>
+            <p>users waiting in queue</p>
             <ul>
                 {
                     queueObject.map((entry) => (
-                        <li key={entry.id}>
-                            <p>ID: {entry.id}</p>
-                            <p>User ID: {entry.user_id}</p>
-                            <p>Group ID: {entry.group_id}</p>
-                            <p>Timestamp: {entry.timestamp}</p>
-                            <p>Processed: {entry.processed ? "Yes" : "No"}</p>
-                        </li>
+
+                        entry.processed ? null :
+                            <li key={entry.id}>
+                                <p>User ID: {entry.user_id}</p>
+                                <p>oined: {entry.timestamp}</p>
+                            </li>
+
+
                     ))
                 }
-
             </ul>
 
         </>

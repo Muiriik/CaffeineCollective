@@ -18,7 +18,6 @@ const Group = () => {
             }} />
 
             <div>
-                <h2>queue</h2>
                 <QueueProvider>
                     <Queue />
                 </QueueProvider>
