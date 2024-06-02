@@ -12,7 +12,7 @@ const Queue = () => {
     return (
         <>
             <h2>queue</h2>
-            <p>users waiting in queue</p>
+            <p>{queueObject.length} users waiting in queue</p>
             <ul>
                 {
                     queueObject.map((entry) => (
