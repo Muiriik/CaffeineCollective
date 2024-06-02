@@ -38,21 +38,6 @@ function GroupProvider({ children }) {
         }
     }
 
-    // useEffect(() => {
-    //     setGroupList((current) => ({ ...current, state: "loading" }));
-    //     fetch(`http://localhost:3000/api/v1/groups/${selectedRole}`, {
-    //         method: "GET",
-    //     }).then(async (response) => {
-    //         const responseJson = await response.json();
-    //         if (response.status >= 400) {
-    //             setGroupList({ state: "error", error: responseJson.error });
-    //         } else {
-    //             setGroupList({ state: "ready", data: responseJson });
-    //         }
-    //     });
-    // }, []);
-
-
     const value = {
         state: groupObject.state,
         groupObject: groupObject.data || [],
@@ -62,17 +47,6 @@ function GroupProvider({ children }) {
         },
         error: groupObject.error || null,
     };
-
-    // const value = {
-    //     groupList: groupList.data || [],
-    //     selectedGroup: selectedGroup || "",
-    //     groupHandlerMap: {
-    //         open: setSelectedGroup,
-    //         close: () => setSelectedGroup(null),
-    //     },
-    // };
-    console.log(value);
-    // console.log(value.groupList.filter((role) => role.user_id === loggedInUser.id));
 
     return (
         <>
