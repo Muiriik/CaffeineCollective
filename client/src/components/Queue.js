@@ -1,9 +1,13 @@
 import { useContext } from "react";
-
+import Button from 'react-bootstrap/Button';
 import { QueueContext } from "../contexts/QueueContext";
+import { UserContext } from "../contexts/UserContext";
+import { GroupContext } from "../contexts/GroupContext";
 
 const Queue = () => {
     const { queueObject, queueHandlerMap } = useContext(QueueContext)
+    const { loggedInUser } = useContext(UserContext);
+    const { groupObject } = useContext(GroupContext);
 
     return (
         <>
@@ -23,7 +27,20 @@ const Queue = () => {
                     ))
                 }
             </ul>
-
+            <Button variant="primary" onClick={async () => {
+                try {
+                    const date = new Date();
+                    queueHandlerMap.join({
+                        "user_id": `${loggedInUser.id}`,
+                        "group_id": `${groupObject.id}`,
+                        "timestamp": `${date.toISOString()}`,
+                        "processed": "0",
+                    });
+                } catch (e) {
+                    console.error(e);
+                }
+            }
+            }>Join queue</Button>
         </>
     );
 };
