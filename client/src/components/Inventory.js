@@ -12,7 +12,9 @@ const Inventory = () => {
                 {
                     inventoryObject.map((entry) => (
 
-                        entry.processed ? null :
+                        entry.processed ?
+                            <p>no entries</p>
+                            :
                             <li key={entry.id}>
                                 <p>Added by: {entry.user_id}</p>
                                 <p>Added at: {entry.timestamp}</p>
