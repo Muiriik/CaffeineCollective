@@ -21,10 +21,7 @@ const Layout = () => {
                 <Container>
                     <RolesProvider>
                         {loggedInUser ?
-                            // <GroupProvider>
                             <Outlet />
-                            // </GroupProvider>
-
                             :
                             <LoginScreen />
                         }

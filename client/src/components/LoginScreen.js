@@ -7,9 +7,6 @@ import Container from 'react-bootstrap/Container';
 function LoginScreen() {
     const { userList, loggedInUser, handlerMap } = useContext(UserContext);
 
-    // console.log("userList", userList);
-    // console.log("logged in user", loggedInUser);
-
     return (
         <>
 
