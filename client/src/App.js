@@ -18,7 +18,7 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
 
-              <Route index element={<Roles />} />
+              <Route path='/' element={<Roles />} />
               <Route path="/group" element={<GroupProvider><Group /></GroupProvider>} />
               <Route path="*" element={"not found"} />
             </Route>
