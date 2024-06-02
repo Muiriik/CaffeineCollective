@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { GroupContext } from "../contexts/GroupContext";
 import QueueProvider from "../providers/QueueProvider";
+import InventoryProvider from "../providers/InventoryProvider";
 
 import Queue from "../components/Queue";
+import Inventory from "./Inventory";
 const Group = () => {
     const { groupObject } = useContext(GroupContext);
 
@@ -21,7 +23,11 @@ const Group = () => {
                 <QueueProvider>
                     <Queue />
                 </QueueProvider>
-                <h2>inventory</h2>
+            </div>
+            <div>
+                <InventoryProvider>
+                    <Inventory />
+                </InventoryProvider>
             </div>
         </>
 

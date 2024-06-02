@@ -16,7 +16,7 @@ const Queue = () => {
                         entry.processed ? null :
                             <li key={entry.id}>
                                 <p>User ID: {entry.user_id}</p>
-                                <p>oined: {entry.timestamp}</p>
+                                <p>joined: {entry.timestamp}</p>
                             </li>
 
 
